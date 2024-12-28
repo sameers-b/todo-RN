@@ -50,6 +50,10 @@ const styles = StyleSheet.create({
     color: 'red',
     fontWeight: 'bold',
   },
+  editText: {
+    color: 'blue',
+    fontWeight: 'bold',
+  },
   emptyContainer: {
     flex: 1,
     justifyContent: 'center',

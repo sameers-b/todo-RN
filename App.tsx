@@ -30,6 +30,12 @@ const App: React.FC = () => {
     setTasks(prevTasks => prevTasks.filter(task => task.id !== id));
   };
 
+  const editTask = (updatedTask: Task) => {
+    setTasks(prevTasks =>
+      prevTasks.map(task => (task.id === updatedTask.id ? updatedTask : task)),
+    );
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>To-Do App</Text>
@@ -40,7 +46,12 @@ const App: React.FC = () => {
         <FlatList
           data={tasks}
           renderItem={({item}) => (
-            <TaskItem task={item} onToggle={toggleTask} onDelete={deleteTask} />
+            <TaskItem
+              task={item}
+              onEditTask={editTask}
+              onToggle={toggleTask}
+              onDelete={deleteTask}
+            />
           )}
           keyExtractor={item => item.id}
         />
